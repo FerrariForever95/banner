@@ -1,3 +1,8 @@
+# figlet.py
+# A lightweight MicroPython FIGlet-like banner generator optimized for Zeno OS.
+# Designed for memory efficiency on constrained embedded hardware (4 GB RAM / ESP32).
+
+# Built-in font: block (5 rows high)
 FONT_BLOCK = {
     "A": [
         "  ##  ",
@@ -375,3 +380,260 @@ FONT_BLOCK = {
         "   #  ",
         "   #  ",
         "   #  ",
+        " #####"
+    ],
+    "2": [
+        " #### ",
+        "     #",
+        " #### ",
+        "#     ",
+        "######"
+    ],
+    "3": [
+        "##### ",
+        "    # ",
+        " ###  ",
+        "    # ",
+        "##### "
+    ],
+    "4": [
+        "#    #",
+        "#    #",
+        "######",
+        "    # ",
+        "    # "
+    ],
+    "5": [
+        "######",
+        "#     ",
+        "##### ",
+        "    # ",
+        "##### "
+    ],
+    "6": [
+        " #### ",
+        "#     ",
+        "##### ",
+        "#    #",
+        " #### "
+    ],
+    "7": [
+        "######",
+        "    # ",
+        "   #  ",
+        "  #   ",
+        " #    "
+    ],
+    "8": [
+        " #### ",
+        "#    #",
+        " #### ",
+        "#    #",
+        " #### "
+    ],
+    "9": [
+        " #### ",
+        "#    #",
+        " #####",
+        "    # ",
+        " #### "
+    ],
+    " ": [
+        "    ",
+        "    ",
+        "    ",
+        "    ",
+        "    "
+    ],
+    ".": [
+        "    ",
+        "    ",
+        "    ",
+        " ## ",
+        " ## "
+    ],
+    ",": [
+        "    ",
+        "    ",
+        " ## ",
+        "  # ",
+        " #  "
+    ],
+    "!": [
+        " ## ",
+        " ## ",
+        " ## ",
+        "    ",
+        " ## "
+    ],
+    "?": [
+        "#####",
+        "    #",
+        "  ## ",
+        "     ",
+        "  ## "
+    ],
+    "-": [
+        "      ",
+        "      ",
+        "######",
+        "      ",
+        "      "
+    ],
+    ":": [
+        "    ",
+        " ## ",
+        "    ",
+        " ## ",
+        "    "
+    ],
+    "_": [
+        "      ",
+        "      ",
+        "      ",
+        "      ",
+        "######"
+    ],
+    "#": [
+        " #  # ",
+        "######",
+        " #  # ",
+        "######",
+        " #  # "
+    ]
+}
+
+# Built-in font: small (3 rows high)
+FONT_SMALL = {
+    "A": [" /\\ ", "/--\\", "    "],
+    "B": ["| ) ", "|--<", "|__/" ],
+    "C": [" /--", "|   ", " \\__"],
+    "D": ["|  \\ ", "|   /", "|__/ "],
+    "E": ["|-- ", "|-- ", "|___"],
+    "F": ["|-- ", "|-- ", "|   "],
+    "G": [" /--", "| |_", " \\__"],
+    "H": ["|  |", "|--|", "|  |"],
+    "I": [" _ ", " | ", " _ "],
+    "J": ["  | ", "  | ", "\\_/" ],
+    "K": ["|  / ", "|-<  ", "|  \\ "],
+    "L": ["|   ", "|   ", "|___"],
+    "M": ["|\\/|", "|  |", "|  |"],
+    "N": ["|\\ |", "| \\|", "|  |"],
+    "O": ["/--\\", "|  |", "\\--/"],
+    "P": ["|--\\", "|--/", "|   "],
+    "Q": ["/--\\", "|  |", " \\/="],
+    "R": ["|--\\", "|-< ", "|  \\ "],
+    "S": [" /--", " \\-- ", "--/ "],
+    "T": ["---", " | ", " | "],
+    "U": ["|  |", "|  |", "\\--/"],
+    "V": ["\\  /", " \\/ ", "    "],
+    "W": ["|  |", "|/\\|", "    "],
+    "X": ["\\  /", " >< ", "/  \\"],
+    "Y": ["\\  /", " \\/ ", "  | "],
+    "Z": ["---/", "  / ", "/___"],
+    "a": ["    ", " /-\\", " \\-/ "],
+    "b": ["|   ", "|-/", "|-\\"],
+    "c": ["    ", "/-- ", "\\__ "],
+    "d": ["  | ", " \\-|", " \\-|"],
+    "e": ["    ", "/--\\", "\\--/"],
+    "f": [" /--", "|-- ", "|   "],
+    "g": ["    ", "/-\\", "\\-/ "],
+    "b": ["|   ", "|--\\", "|  |"],
+    "i": [" . ", " | ", " _ "],
+    "j": ["  . ", "    ", " _/ "],
+    "k": ["|   ", "|-< ", "|  \\"],
+    "l": [" | ", " | ", " _ "],
+    "m": ["    ", "/\\/\\", "|\\/|"],
+    "n": ["    ", "/--\\", "|  |"],
+    "o": ["    ", "/--\\", "\\--/"],
+    "p": ["    ", "|--\\", "|   "],
+    "q": ["    ", " \\-|", "  | "],
+    "r": ["    ", "/-- ", "|   "],
+    "s": ["    ", "/-- ", "\\--."],
+    "t": [" |  ", "/--\\", " \\--"],
+    "u": ["    ", "|  |", "\\--/"],
+    "v": ["    ", "\\  /", " \\/ "],
+    "w": ["    ", "|  |", "|/\\|"],
+    "x": ["    ", "\\  /", "/  \\"],
+    "y": ["    ", "\\  /", " \\/ "],
+    "z": ["    ", "---/", "/__ "],
+    "0": ["/--\\", "|  |", "\\--/"],
+    "1": [" /| ", "  | ", " _|_"],
+    "2": ["/__\\", "  / ", "\\___"],
+    "3": ["/__\\", " __/", "\\__/"],
+    "4": ["|  |", "|__|", "   |"],
+    "5": ["|-- ", "\\--\\", "\\__/"],
+    "6": [" /--", "|--\\", "\\__/"],
+    "7": ["----", "  / ", " /  "],
+    "8": ["/--\\", "|--|", "\\--/"],
+    "9": ["/--\\", "\\__|", " __/"],
+    " ": [" ", " ", " "],
+    ".": [" ", " ", "."],
+    ",": [" ", " ", ","],
+    "!": ["!", "!", "."],
+    "?": ["/--\\", "  /", " o  "],
+    "-": ["   ", "---", "   "],
+    ":": [" . ", "   ", " . "],
+    "_": ["   ", "   ", "___"],
+    "#": ["|\\|", "|\\|", "   "]
+}
+
+# Font registry
+_FONTS = {
+    "block": FONT_BLOCK,
+    "small": FONT_SMALL
+}
+
+# Active default font
+_CURRENT_FONT = "block"
+
+def setfont(name):
+    """Set the active font by name."""
+    global _CURRENT_FONT
+    if name in _FONTS:
+        _CURRENT_FONT = name
+    else:
+        raise ValueError(f"Font '{name}' not found. Use fonts() to list available.")
+
+def fonts():
+    """Return a list of available font names."""
+    return list(_FONTS.keys())
+
+def add_font(name, font_dict):
+    """Extend the package dynamically with a new custom font dictionary."""
+    _FONTS[name] = font_dict
+
+def render(text):
+    """Render text into a multi-line string using the active font."""
+    font = _FONTS[_CURRENT_FONT]
+    
+    # Fallback to '?' row configuration length if row count varies
+    sample_char = list(font.values())[0]
+    num_rows = len(sample_char)
+    fallback_char = font.get("?", ["?"] * num_rows)
+    
+    # Build rows incrementally
+    rows = [""] * num_rows
+    for char in text:
+        char_glyph = font.get(char, fallback_char)
+        # Ensure fallback safety if character glyph rows mismatch
+        if len(char_glyph) != num_rows:
+            char_glyph = fallback_char
+            
+        for i in range(num_rows):
+            rows[i] += char_glyph[i] + " "
+            
+    return "\n".join(rows)
+
+def figlet(text):
+    """Print the rendered banner directly to stdout using print()."""
+    print(render(text))
+
+# Zeno OS Terminal Entry Point
+def _zeno_cli(args):
+    """CLI handler for Zeno OS terminal execution."""
+    if not args:
+        print("Usage: figlet <text>")
+        return
+    text = " ".join(args)
+    figlet(text)
