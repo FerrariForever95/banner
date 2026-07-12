@@ -625,7 +625,7 @@ def render(text):
             
     return "\n".join(rows)
 
-def figlet(text):
+def show(text):
     """Print the rendered banner directly to stdout using print()."""
     print(render(text))
 
