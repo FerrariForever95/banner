@@ -633,4 +633,4 @@ def _zeno_cli(args):
         print("Usage: figlet <text>")
         return
     text = " ".join(args)
-    figlet(text)
+    show(text)
