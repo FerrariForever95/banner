@@ -1,6 +1,3 @@
-# figlet.py
-# A lightweight MicroPython FIGlet-like banner generator optimized for Zeno OS.
-# Designed for memory efficiency on constrained embedded hardware (4 GB RAM / ESP32).
 
 # Built-in font: block (5 rows high)
 FONT_BLOCK = {
