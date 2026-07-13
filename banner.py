@@ -189,17 +189,16 @@ def render(text):
 
 def show(text):
     print(render(text))
+def main(text_args=None, font_name=None):
+    if font_name:
+        if font_name in _FONTS:
+            setfont(font_name)
+        else:
+            print(f"Error: Font '{font_name}' does not exist.")
+            return
 
-def main(text_args=None):
     if text_args:
         text = " ".join(text_args) if isinstance(text_args, list) else str(text_args)
         show(text)
     else:
         show("Zeno OS")
-
-def _zeno_cli(args):
-    if not args:
-        print("Usage: banner <text>")
-        return
-    main(args)
-
