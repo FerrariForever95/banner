@@ -191,8 +191,6 @@ def show(text):
     print(render(text))
 
 def main(text_args=None):
-    """ZenCMD/2 entry point with command arguments support."""
-    print("ZenCMD/2 initializing...")
     if text_args:
         text = " ".join(text_args) if isinstance(text_args, list) else str(text_args)
         show(text)
@@ -201,6 +199,7 @@ def main(text_args=None):
 
 def _zeno_cli(args):
     if not args:
-        print("Usage: figlet <text>")
+        print("Usage: banner <text>")
         return
     main(args)
+
